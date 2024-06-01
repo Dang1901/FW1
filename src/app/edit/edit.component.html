@@ -1,0 +1,23 @@
+<!-- khai báo tên form: #tenForm="ngForm" -->
+<form class="container" #editForm="ngForm" (ngSubmit)="onEdit(editForm.value)">
+    <div>
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="project.name">
+    </div>
+    <div>
+        <label for="" class="form-label">Description</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="project.description">
+    </div>
+    <div>
+        <label for="" class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" [(ngModel)]="project.price">
+    </div>
+    <div>
+        <label for="" class="form-label">Image</label>
+        <input type="text" class="form-control" name="image" [(ngModel)]="project.image">
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-success my-3" value="Sửa">
+    </div>
+</form>
+

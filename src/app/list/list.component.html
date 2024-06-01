@@ -1,0 +1,32 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(p of listProjects; track p.id) {
+        <tr>
+          <td>{{ p.id }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.description }}</td>
+          <td>{{ p.price }}</td>
+          <td><img src="{{p.image}}" alt=""></td>
+          <td class="d-flex">
+            <a class="btn btn-danger" (click)="onDelete(p.id)">Delete</a>  
+            <a class="btn btn-info mx-2" [routerLink]="['/detail',p.id]">
+              Detail
+            </a>
+            <a class="btn btn-warning" [routerLink]="['/edit',p.id]">Edit</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

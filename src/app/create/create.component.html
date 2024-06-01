@@ -1,0 +1,31 @@
+<!-- khai báo tên form: #tenForm="ngForm" -->
+<form class="container" #createForm="ngForm" (ngSubmit)="onCreate(createForm.value)">
+    <div>
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" #errorName="ngModel" name="name" ngModel required minlength="3" maxlength="10">
+        <p *ngIf="errorName.dirty && errorName.invalid" class="text-danger"> 
+            Dữ liệu nhập vào không hợp lệ 
+        </p>
+        <p *ngIf="errorName.dirty && errorName.errors?.['required']" class="text-danger">
+            Tên không được bỏ trống
+        </p>
+        <p *ngIf="errorName.dirty && errorName.errors?.['minlength']" class="text-danger">
+            Tên không được ngắn hơn 3 ký tự
+        </p>
+    </div>
+    <div>
+        <label for="" class="form-label">Description</label>
+        <input type="text" class="form-control" name="description" ngModel>
+    </div>
+    <div>
+        <label for="" class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" ngModel required min="0" max="1000000">
+    </div>
+    <div>
+        <label for="" class="form-label">Image</label>
+        <input type="text" class="form-control" name="image" ngModel>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-success my-3" value="Thêm mới">
+    </div>
+</form>
